@@ -1,4 +1,12 @@
-## AWS pricing
+# Table of Contents
+
+* [AWS Pricing](#aws-pricing)
+* [AWS Budget Setup](#aws-budget-setup)
+* [Security](#security)
+* [About](#about)
+* [License & Copyright](#license-and-copyright)
+
+## AWS Pricing
 
 sprocs app usage will generate an AWS bill that is your responsibility (likely small for casual use but do your own diligence).
 
@@ -8,7 +16,7 @@ Setup `AWS Budget` notifications to monitor for unexpected serverless costs.
 
 By using only serverless AWS resources, you only pay for what you use and not for idle time. Comparable SaaS offerings are almost always magnitudes more costly.
 
-## AWS Budget setup
+## AWS Budget Setup
 
 To setup a simple cost budget monitor for your serverless components:
 
