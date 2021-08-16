@@ -1,10 +1,22 @@
-# Table of Contents
-
+* [About](#about)
+* [Deployment](#deployment)
 * [AWS Pricing](#aws-pricing)
 * [AWS Budget Setup](#aws-budget-setup)
 * [Security](#security)
-* [About](#about)
-* [License & Copyright](#license-and-copyright)
+* [License & Copyright](#license--copyright)
+
+## About
+
+[sprocs](https://sprocs.com) develops both free and commercial serverless apps for AWS.
+
+## Deployment
+
+Most sprocs apps are deployed using [AWS Amplify Console](https://docs.aws.amazon.com/amplify/latest/userguide/welcome.html) which allows you to simply specify a git repository and Amplify will provision all necessary AWS resources to run the app and host the frontend within your own AWS account.  Amplify Console provides a UI within AWS Console to list and manage resources, environments, environment variables, Cognito users/groups, enable/view logs, etc.
+
+Updates can be automated by setting up continuous deployment to auto deploy upon new commits to the git repository branch specified. Alternatively, for more control, you can specify a specific brand/tag and update the target branch manually when you want to update.
+
+Amplify can spin up separate environments for each branch to stage updates if
+desired.
 
 ## AWS Pricing
 
@@ -41,10 +53,6 @@ sprocs apps create AWS IAM roles/profiles during AWS Amplify deployment (via Clo
 For added security/visibility, we recommend [creating an AWS subaccount](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_accounts_create.html) via `AWS Organizations` to isolate your sprocs.
 
 Potential security vulnerabilities can be reported directly to us at `security@sprocs.com`.
-
-## About
-
-[sprocs](https://sprocs.com) develops both free and commercial serverless apps for AWS.
 
 ## License & Copyright
 
