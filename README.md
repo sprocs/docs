@@ -27,8 +27,7 @@ subscribe to EventBridge events, etc)
 * **Improve security and privacy** by gaining visibility into your data policies and
 access controls
 * **Less SaaS** lock-in and pricing power over your data
-* **Use your own domain and email** for increased brand recognition, deliverability, and
-ownership
+* **Use your own domain and email** for increased brand recognition, deliverability, and ownership
 * **Multiple environments**: easily spin up multiple environments per git branch or use case
 * **Free and commercial** apps
 
