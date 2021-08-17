@@ -12,7 +12,7 @@
 
 ## About
 
-[sprocs](https://sprocs.com) develops deployable serverless apps for AWS.
+[sprocs](https://sprocs.com) develops easy-to-deploy and easy-to-maintain serverless apps for AWS.
 
 * **Open source**
 * **Easy to deploy**: click-through deployment with managed hosting via [AWS Amplify Console](https://aws.amazon.com/amplify/hosting/)
@@ -23,11 +23,10 @@ upgrades, no SSH keys...only AWS managed services
 * **Control your own data and endpoints** in your own AWS account/region
 * **Integrate your data** with native AWS services (access DynamoDB streams, trigger S3 events, handle SNS notifications,
 subscribe to EventBridge events, etc)
-* **Limit third party vendors** with opaque access to your data
+* **Less third-party vendors** means less data processors and less uncontrolled access to you and your customers sensitive data
 * **Improve security and privacy** by gaining visibility into your data policies and
 access controls
-* **Less SaaS** lock-in and pricing power
-* **Less third-party data processors** to worry your customers
+* **Less SaaS** lock-in and pricing power over your data
 * **Use your own domain and email** for increased brand recognition, deliverability, and
 ownership
 * **Multiple environments**: easily spin up multiple environments per git branch or use case
