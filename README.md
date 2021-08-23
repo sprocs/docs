@@ -4,7 +4,7 @@ This repo contains common documentation across projects.
 
 ## Docs
 
-* [Deployment](deployment.md)
+* [Setup](setup.md)
 * [Upgrading](upgrading.md)
 * [Security](security.md)
 * [Pricing](pricing.md)
