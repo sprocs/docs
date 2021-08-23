@@ -1,17 +1,17 @@
-# FAQ
+# Setup
 
-* [AWS Pricing](#aws-pricing)
-* [AWS Budget Setup](#aws-budget-setup)
+## Deployment
 
-## AWS Pricing
+Most sprocs apps are deployed using [AWS Amplify Console](https://docs.aws.amazon.com/amplify/latest/userguide/welcome.html) which allows you to simply specify a git repository and Amplify will provision all necessary AWS resources to run the app and host the frontend within your own AWS account.  Amplify Console provides a UI within AWS Console to list and manage resources, environments, environment variables, Cognito users/groups, enable/view logs, etc.
 
-sprocs app usage will generate an AWS bill that is your responsibility (likely small for casual use but do your own diligence).
+Once deployed, Amplify provides an admin UI to view your backend (APIs,
+functions, authentication, DynamoDB tables, etc.) as well as your frontend build
+status. From this UI, you can also setup a custom domain, setup logging, set environment variables to toggle specific
+features, and more.
 
-sprocs apps setup the following AWS tags on resources it creates `sprocs_app = APP_NAME` and `sprocs_env = AMPLIFY_ENV_HERE` for billing reporting purposes.
+Updates can be automated by setting up continuous deployment to auto deploy upon new commits to the git repository branch specified. Alternatively, for more control, you can specify a specific brand/tag and update the target branch manually when you want to update. See [Deployment](deployment.md)
 
-Setup `AWS Budget` notifications to monitor for unexpected serverless costs.
-
-By using only serverless AWS resources, you only pay for what you use and not for idle time. Comparable SaaS offerings are almost always magnitudes more costly.
+Amplify can also spin up separate environments for each branch to stage updates if desired.
 
 ## AWS Budget Setup
 
