@@ -1,28 +1,86 @@
 # Setup
 
-## Deployment
+## Deployment Overview
 
-Most sprocs apps are deployed using [AWS Amplify Console](https://docs.aws.amazon.com/amplify/latest/userguide/welcome.html) which allows you to simply specify a git repository and Amplify will provision all necessary AWS resources to run the app and host the frontend within your own AWS account.  Amplify Console provides a UI within AWS Console to list and manage resources, environments, environment variables, Cognito users/groups, enable/view logs, etc.
+Most sprocs apps are deployed using [AWS Amplify Console](https://docs.aws.amazon.com/amplify/latest/userguide/welcome.html) which allows you to simply specify a git repository and Amplify will provision all necessary AWS resources to run the app and host the frontend within your own AWS account.  Amplify Console provides a UI within AWS Console to list and manage resources, environments, environment variables, Cognito users/groups, enable/view logs, setup a custom domain, etc. similar to a PaaS like Heroku.
 
-Under the hood, Amplify authenticates with read-only access to a
-your forked sprocs repository on GitHub which will serve as your personal release branch. When you
-make changes to your `main` branch (by default, see "Default Setup"), or other branch (if you setup your Amplify
+Under the hood, Amplify authenticates with read-only access to your forked sprocs repository on GitHub which will serve as your personal release branch. When you
+make changes to your `main` branch (by default, see [Deployment Options](#deployment-options)), or other branch (if you setup your Amplify
 app manually, see "Manual Setup"), Amplify will automatically generate and apply new
 CloudFormation templates for relevant AWS services.
 
-The 
+### Deployment Options
 
+* **"Deploy to Amplify Console" Button** (easiest)
+   * easy UI-only path to spin up a new environment
+   * update your Amplify app with the latest release by simply clicking `Fetch upstream` button in the GitHub UI of your forked repo
+   * less flexibility to target a specific branch (will be pointed at `main`)
+   * Amplify automatically forks the sprocs repo to your own GitHub account;
+   forks on GitHub are public
+* **Deploy within Amplify Console Manually**
+   * setup in AWS Amplify Console within AWS Console
+   * can specify a specific branch to target
+   * less flexibility to target a specific branch
+   * Amplify automatically forks the sprocs repo to your own GitHub account;
+   forks on GitHub are public
+* **Private Fork/Clone Deployment**
+   * use CLI git to clone and setup git remotes back to upstream sprocs repo
+   * allows more flexibility for branch naming and upstream branch tracking
+   (track multiple release branches)
+   * repo can be private
 
+#### "Deploy to Amplify Console" Button
 
-Amplify can also spin up separate environments for each branch to stage updates if desired.
+1. On the original sprocs repo, click the "Deploy to Amplify Console" button
+2. Login to AWS Console
+3. Select `Connect to GitHub`
+4. After authorization, select the `amplifyconsole-backend-role` or create a new
+   role
+5. Click `Save and deploy`
 
+#### Deploy within Amplify Console Manually
 
-Updates can be automated by setting up continuous deployment to auto deploy upon new commits to the git repository branch specified. Alternatively, for more control, you can specify a specific brand/tag and update the target branch manually when you want to update. See [Deployment](deployment.md)
+1. Fork or clone a sprocs repo to your GitHub account
+2. Navigate to `AWS Amplify -> Connect app (button)`
+3. Select `GitHub`
+4. Authorize read-only with `GitHub`
+5. Select your forked/cloned sprocs repo and desired branch (likely `main`)
+6. Select or add an environment name (ie: `production` or `dev`)
+7. Acknowledge AWS will perform continuous deployment when you fetch new
+   upstream commits on your forked/cloned repo on the branch that is being
+   deployed.
+8. Click `Save and deploy`
 
-Once deployed, Amplify provides an admin UI to view your backend (APIs,
-functions, authentication, DynamoDB tables, etc.) as well as your frontend build
-status. From this UI, you can also setup a custom domain, setup logging, set environment variables to toggle specific
-features, and more.
+#### Private Fork/Clone Deployment
+
+If it is necessary to have a private fork, you can clone the sprocs
+repo and add an upstream remote back to the original sprocs repo to fetch
+updates. See [Configuring a remote for a fork](https://docs.github.com/en/github/collaborating-with-pull-requests/working-with-forks/configuring-a-remote-for-a-fork).
+
+After you have your cloned repo setup on your GitHub account, you can follow the
+instructions to [Deploy within Amplify Console Manually](#deploy-within-amplify-console-manually)
+
+## Multiple Branches
+
+You can setup multiple environments/frontend builds for separate branches by
+selecting `Connect branch` in Amplify Console and linking a branch to an Amplify
+environment.
+
+This can be helpful to test a new release or other changes before
+merging to `main`.
+
+### Staging Changes/New Environments
+
+To stage changes and spin up a new environment to test:
+
+1. Create a remote branch
+2. Select `Connect branch`
+3. Select your remote branch
+4. Select `Create new environment` (or an existing environment if you are sure no backend changes will be made)
+5. Select `Save and deploy`
+6. An entirely separate environment will be spun up using your branch, you can
+   use it to test and then create an associated PR to track using your release
+   branch as the base to merge into if the changes look good
 
 ## AWS Budget Setup
 
