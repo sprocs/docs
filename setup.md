@@ -20,7 +20,6 @@ CloudFormation templates for relevant AWS services.
 * [**Deploy within Amplify Console Manually**](#deploy-within-amplify-console-manually)
    * setup in AWS Amplify Console within AWS Console
    * can specify a specific branch to target
-   * less flexibility to target a specific branch
    * Amplify automatically forks the sprocs repo to your own GitHub account;
    forks on GitHub are public
 * [**Private Fork/Clone Deployment**](#private-forkclone-deployment)
