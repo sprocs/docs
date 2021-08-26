@@ -11,19 +11,19 @@ CloudFormation templates for relevant AWS services.
 
 ### Deployment Options
 
-* **"Deploy to Amplify Console" Button** (easiest)
+* [**"Deploy to Amplify Console" Button**](#deploy-to-amplify-console-button) (easiest)
    * easy UI-only path to spin up a new environment
    * update your Amplify app with the latest release by simply clicking `Fetch upstream` button in the GitHub UI of your forked repo
    * less flexibility to target a specific branch (will be pointed at `main`)
    * Amplify automatically forks the sprocs repo to your own GitHub account;
    forks on GitHub are public
-* **Deploy within Amplify Console Manually**
+* [**Deploy within Amplify Console Manually**](#deploy-within-amplify-console-manually)
    * setup in AWS Amplify Console within AWS Console
    * can specify a specific branch to target
    * less flexibility to target a specific branch
    * Amplify automatically forks the sprocs repo to your own GitHub account;
    forks on GitHub are public
-* **Private Fork/Clone Deployment**
+* [**Private Fork/Clone Deployment**](#private-forkclone-deployment)
    * use CLI git to clone and setup git remotes back to upstream sprocs repo
    * allows more flexibility for branch naming and upstream branch tracking
    (track multiple release branches)
