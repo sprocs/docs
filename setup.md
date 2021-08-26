@@ -43,7 +43,8 @@ CloudFormation templates for relevant AWS services.
 2. Navigate to `AWS Amplify -> Connect app (button)`
 3. Select `GitHub`
 4. Authorize read-only with `GitHub`
-5. Select your forked/cloned sprocs repo and desired branch (likely `main`)
+5. Select your forked/cloned sprocs repo and desired branch (likely `main` or
+   `release` if you [setup your own custom release branch](#custom-release-branch))
 6. Select or add an environment name (ie: `production` or `dev`)
 7. Acknowledge AWS will perform continuous deployment when you fetch new
    upstream commits on your forked/cloned repo on the branch that is being
@@ -59,13 +60,26 @@ updates. See [Configuring a remote for a fork](https://docs.github.com/en/github
 After you have your cloned repo setup on your GitHub account, you can follow the
 instructions to [Deploy within Amplify Console Manually](#deploy-within-amplify-console-manually)
 
-## Tracking Release Branches
+## Custom Release Branch
 
-TODO
-Setup to track `main`
-Add remotes for release branches
-Merge into main
-How to rollback
+If you'd like to target specific release versions of upstream sprocs repos, we
+recommend managing your own `release` branch and merge release tagged branches
+into your `release` branch.
+
+An example workflow:
+
+1. Fork or clone a sprocs repo
+2. Track upstream repo if not already setup (`git remote -v` will list remotes,
+   verify `upstream` remote is setup to track original sprocs repo)
+   * Setup upstream tracking (example: `git remote add upstream git@github.com:sprocs/wormhole.git`)
+   * Fetch upstream to update release branches/tags: `git fetch upstream`
+3. Create your own `release` branch:
+   * `git checkout -b release`
+   * List available release tags: `git tag`
+   * Reset your new `release` branch to the release tag you wish to deploy, example: `git reset --hard 0.1.2`
+   * Push (or force push if necessary) your new branch, example: `git push -u origin release`
+   * The `release` branch on your cloned/forked repo now reflects the `0.1.2` release
+4. Follow [Deploy within Amplify Console Manually](#deploy-within-amplify-console-manually) and setup Amplify to watch the `release` branch the you just setup
 
 ## Multiple Branches
 
@@ -88,6 +102,28 @@ To stage changes and spin up a new environment to test:
 6. An entirely separate environment will be spun up using your branch, you can
    use it to test and then create an associated PR to track using your release
    branch as the base to merge into if the changes look good
+
+## Troubleshooting
+
+* Some regions are not yet supported by Amplify CLI [List](https://github.com/aws-amplify/amplify-cli/blob/master/packages/amplify-provider-awscloudformation/src/aws-regions.js). Supported regions:
+   ```
+   const regionMappings = {
+      'us-east-1': 'US East (N. Virginia)',
+      'us-east-2': 'US East (Ohio)',
+      'us-west-2': 'US West (Oregon)',
+      'eu-west-1': 'EU (Ireland)',
+      'eu-west-2': 'EU (London)',
+      'eu-central-1': 'EU (Frankfurt)',
+      'ap-northeast-1': 'Asia Pacific (Tokyo)',
+      'ap-northeast-2': 'Asia Pacific (Seoul)',
+      'ap-southeast-1': 'Asia Pacific (Singapore)',
+      'ap-southeast-2': 'Asia Pacific (Sydney)',
+      'ap-south-1': 'Asia Pacific (Mumbai)',
+      'ca-central-1': 'Canada (Central)',
+   };
+   ```
+* [Contact us](team@sprocs.com) if you require assistance and we'll try our best
+to help.
 
 ## AWS Budget Setup
 
