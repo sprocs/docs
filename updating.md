@@ -1,4 +1,4 @@
-# Upgrading
+# Updating
 
 Amplify app environments are pointed to a branch on your GitHub fork or clone of
 a sprocs repo (see [Setup](setup.md) for more info). When new commits occur on
@@ -6,7 +6,7 @@ that branch, your Amplify app environment is automatically updated. Because of
 this, updating your sprocs app version is as simple as updating your fork to
 reflect upstream sprocs changes.
 
-## Upgrading Standard Forked Repo
+## Updating Standard Forked Repo
 
 Assuming you forked a sprocs repo with the "Deploy to Amplify Console" button
 and have an Amplify app that is tracking the `main` branch on your forked repo
@@ -19,7 +19,7 @@ just fetch the upstream changes by tracking an upstream release branch (ex:
 branch your Amplify app is setup to track. See "Keeping a fork up to date" link
 for some helpful tips.
 
-## Upgrading Custom Release Branch
+## Updating Custom Release Branch
 
 If you setup a [Custom Release Branch](setup.md#custom-release-branch) you can
 manually update your release branch by:
