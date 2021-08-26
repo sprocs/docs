@@ -59,6 +59,14 @@ updates. See [Configuring a remote for a fork](https://docs.github.com/en/github
 After you have your cloned repo setup on your GitHub account, you can follow the
 instructions to [Deploy within Amplify Console Manually](#deploy-within-amplify-console-manually)
 
+## Tracking Release Branches
+
+TODO
+Setup to track `main`
+Add remotes for release branches
+Merge into main
+How to rollback
+
 ## Multiple Branches
 
 You can setup multiple environments/frontend builds for separate branches by
