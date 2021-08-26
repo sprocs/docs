@@ -1,4 +1,4 @@
-[sprocs](https://sprocs.com) develops easy-to-deploy and easy-to-maintain serverless apps for AWS.
+[sprocs](https://sprocs.com) develops easy to deploy and easy to run serverless apps for AWS.
 
 This repo contains common documentation across projects.
 
