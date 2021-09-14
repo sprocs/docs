@@ -9,3 +9,4 @@ This repo contains common documentation across projects.
 * [Security](security.md)
 * [Pricing](pricing.md)
 * [Licensing](licensing.md)
+* [Troubleshooting](troubleshooting.md)
