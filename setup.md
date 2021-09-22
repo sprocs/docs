@@ -103,6 +103,10 @@ To stage changes and spin up a new environment to test:
    use it to test and then create an associated PR to track using your release
    branch as the base to merge into if the changes look good
 
+## Login to web UI/Authentication
+
+See [Authentication](authentication.md)
+
 ## Troubleshooting
 
 * Some regions are not yet supported by Amplify CLI [List](https://github.com/aws-amplify/amplify-cli/blob/master/packages/amplify-provider-awscloudformation/src/aws-regions.js). Supported regions:

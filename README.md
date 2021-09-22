@@ -5,6 +5,7 @@ This repo contains common documentation across projects.
 ## Docs
 
 * [Setup](setup.md)
+* [Authentication](authentication.md)
 * [Updating](updating.md)
 * [Security](security.md)
 * [Pricing](pricing.md)
